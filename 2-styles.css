@@ -99,7 +99,6 @@ body {
 
 .toggle-switch:before {
     background-color: var(--color-gray-light);
-    border: 1px solid transparent;
     color: var(--color-gray);
     content: "No";
     display: none;
