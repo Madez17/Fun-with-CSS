@@ -1,0 +1,115 @@
+:root {
+    --color-primary: #e1013c;
+    --color-white: #fff;
+    --color-gray: #c3c3c3;
+    --color-gray-light: #EBEBEB;
+    --color-green: green;
+    --box-shadow: inset 0px 0px 0px 2px var(--color-gray);
+
+    --border: 2px solid #c3c3c3;
+    --br-radius: 50%;
+    --line-height: 1.5;
+    
+    --font-family-base: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-size-medium: 3rem;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
+    
+    --transition-duration: .2s;
+    --transform-x: translateX(-2rem);
+}
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: var(--font-size-medium);
+    min-width: 960px;
+}
+.toggle {
+    display: inline-block;
+    margin: 3rem 5rem;
+}
+
+.toggle .toggle-cb {
+    display: none;
+}
+
+.toggle .toggle-label {
+    background-color: var(--color-primary);
+    border: var(--border);
+    border-radius: 3rem;
+    color: var(--color-white);
+    display: inline-block;
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height);
+    height: 5rem;
+    position: relative;
+    text-align: center;
+    width: 13rem;
+}
+
+.toggle .toggle-label::before {
+    background-color: var(--color-white);
+    border-radius: var(--br-radius);
+    bottom: -9px;
+    box-shadow: var(--box-shadow);
+    content: '';
+    display: block;
+    height: 6.5rem;
+    position: absolute;
+    right: -33px;
+    transition: var(--transition-duration);
+    width: 6.5rem;
+    z-index: 2;
+}
+
+.toggle .toggle-cb:checked + .toggle-label {
+    background-color: var(--color-gray-light);
+}
+
+.toggle .toggle-cb:checked + .toggle-label::before {
+    content: '';
+    transform: var(--transform-x);
+    left: -14px;
+    right: 0;
+}
+
+.toggle-inner:before,
+.toggle-switch:before {
+    border-radius: var(--br-radius);
+    bottom: 0;
+    color: var(--color-white);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.toggle-inner:before {
+    content: "Yes";
+    background-color: var(--color-primary);
+}
+
+.toggle-switch:before {
+    background-color: var(--color-gray-light);
+    border: 1px solid transparent;
+    color: var(--color-gray);
+    content: "No";
+    display: none;
+    padding-left: 10px;
+}
+
+.toggle .toggle-cb:checked + .toggle-label .toggle-switch:before {
+    display: block;
+}
+
+.toggle .toggle-cb:checked + .toggle-label .toggle-inner:before {
+    display: none;
+}
